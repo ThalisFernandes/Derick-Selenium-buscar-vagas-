@@ -58,10 +58,12 @@ def buscar_vagas():
 def create_email (links: list):
     print("Entrando -> Create Email")
     global pagina
+    atual = ''
     email: str = f" Pagina {pagina} \n"
     for x in links:
         x = validar_os_links(x)
-        if x != "":
+        if x != "" and x != atual:
+            atual = x
             email += f"link para vaga -> {x}; \n"
     print(email)
     escrevendo_arquivo(email)
